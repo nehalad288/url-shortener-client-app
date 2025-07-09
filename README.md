@@ -1,46 +1,97 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Client App Documentation
 
-## Available Scripts
+This document provides an overview of the `client-app` repository for the URL Shortener project. It covers the project structure, setup instructions, and documentation for the main React components.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Table of Contents
+- [Project Overview](#project-overview)
+- [Setup Instructions](#setup-instructions)
+- [Project Structure](#project-structure)
+- [Main Components](#main-components)
+- [Helpers](#helpers)
+- [Build & Public Folders](#build--public-folders)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+---
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Project Overview
 
-### `npm test`
+The `client-app` is a React (TypeScript) frontend for the URL shortener service. It allows users to sign up, log in, shorten URLs, and view analytics for their shortened URLs.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Setup Instructions
 
-### `npm run build`
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+2. **Start the development server:**
+   ```bash
+   npm start
+   ```
+   The app will be available at `http://localhost:3000` by default.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Project Structure
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+client-app/
+  package.json
+  tsconfig.json
+  public/
+    index.html
+    ...
+  src/
+    App.tsx
+    index.tsx
+    components/
+      Dashboard.tsx
+      Form.tsx
+      LoginModal.tsx
+      SignupModal.tsx
+    helpers/
+      constants.ts
+    ...
+```
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Main Components
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 1. `components/Dashboard.tsx`
+- Displays a table of all URLs created by the logged-in user.
+- Shows the short URL, original URL, and visit count.
+- Fetches user-specific URLs from the backend and displays analytics.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### 2. `components/Form.tsx`
+- Provides a form for users to submit URLs to be shortened.
+- Handles user input and communicates with the backend to create new short URLs.
+- Exports the `User` type/interface used for authentication and dashboard.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### 3. `components/LoginModal.tsx`
+- Modal dialog for user login.
+- Handles user authentication and error display.
 
-## Learn More
+### 4. `components/SignupModal.tsx`
+- Modal dialog for user registration.
+- Handles new user sign-up and error display.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Helpers
+
+### `helpers/constants.ts`
+- Contains constants such as the backend server URL used for API requests.
+
+---
+
+## Build & Public Folders
+
+- **`build/`**: Contains the production build output (auto-generated after running `npm run build`).
+- **`public/`**: Contains static assets and the main HTML template.
+
+---
+
+## License
+MIT

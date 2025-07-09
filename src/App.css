@@ -1,38 +1,150 @@
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.landing-page{
+  margin: 10px;
+  font-weight: bolder;
+  font-size: xx-large;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.header {
+  width: 100%;
+  height: 80px;
+  background-color: blueviolet;
   color: white;
+  font-size: larger;
+  font-weight: bold;
+  text-align: start;
+  padding: 20px;
+}
+.header-content {
+  display: flex;
+}
+.title {
+  width: 80%;
+}
+.header-button {
+  width: 100px;
+  height: 40px;
+  border-radius: 5px;
+  color: black;
+  font-weight: bold;
+  margin: 10px;
+  font-family: sans-serif;
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.modal {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 35%;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.input-field {
+  display: block;
+  width: 90%;
+  border: 1px solid gray;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+.modal-button {
+  width: 100px;
+  height: 40px;
+  margin: 10px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  font-family: sans-serif;
+  background-color: blueviolet;
+}
+.overlay-container {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  margin: 20px auto;
+}
+.form-heading {
+  width: 80%;
+  margin: 5px;
+  text-align: start;
+}
+.input-form {
+  text-align: start;
+  margin: 5px;
+}
+
+.shorten-button {
+  height: 30px;
+  width: 100px;
+  border-radius: 5px;
+  background-color: blueviolet;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.1s ease;
+}
+.shorten-button:active {
+  transform: scale(0.96);
+}
+.result-url {
+  width: 75%;
+  text-align: start;
+  font-weight: bold;
+  color: blueviolet;
+}
+.copy-button {
+  height: 30px;
+  width: 100px;
+  border-radius: 5px;
+  background-color: white;
+  color: rgb(79, 0, 128);
+  border: 2px solid gray;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.1s ease;
+}
+
+.copy-button:active {
+  transform: scale(0.96);
+}
+
+.success-message {
+  font-size: small;
+  color: green;
+  text-align: start;
+  font-style: italic;
+  font-weight: bold;
+}
+.result-container {
+  display: flex;
+}
+.table{
+  border-collapse: collapse;
+  width: 100%;
+}
+.tdStyle {
+  border: 1px solid #ddd;
+  padding: "8px";
+  text-align: "left";
+}
+.thStyle {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
 }
