@@ -15,23 +15,37 @@ function App() {
     localStorage.removeItem("token");
     setLoggedIn(false);
   };
-  const title = `Welcome ${user?.name}`
+  const title = `Welcome ${user?.name}`;
   return (
-    <div>
+    <div className="app">
       <header className="header">
-        {loggedIn ? (
-          <div className="header-content">
-            <div className="title">{title}</div>
-            <button className="header-button" onClick={handleLogout}>Logout</button>
-          </div>
-        ) : (
-          <>
-          <div className="header-content">
-            <button className="header-button" onClick={() => setShowLogin(true)}>Login</button>
-            <button className="header-button" onClick={() => setShowSignup(true)}>Sign Up</button>
-          </div>
-          </>
-        )}
+        <div className="header-container">
+          {loggedIn ? (
+            <div className="header-content">
+              <div className="title">{title}</div>
+              <button className="header-button" onClick={handleLogout}>
+                Logout
+              </button>
+            </div>
+          ) : (
+            <>
+              <div className="header-content">
+                <button
+                  className="header-button"
+                  onClick={() => setShowLogin(true)}
+                >
+                  Login
+                </button>
+                <button
+                  className="header-button"
+                  onClick={() => setShowSignup(true)}
+                >
+                  Sign Up
+                </button>
+              </div>
+            </>
+          )}
+        </div>
       </header>
 
       {showLogin && (
@@ -52,16 +66,15 @@ function App() {
       )}
 
       {loggedIn && user ? (
-        <div>
+        <div className="landing-page-container">
           <Form user={user} />
-          <Dashboard user={user}/>
+          <Dashboard user={user} />
         </div>
       ) : (
-        <div>
+        <div className="landing-page-container">
           <div className="landing-page">URL Shortener App</div>
           <p>Please log in or sign up to shorten and view URLs.</p>
         </div>
-        
       )}
     </div>
   );

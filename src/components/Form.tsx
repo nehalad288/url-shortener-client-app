@@ -25,8 +25,15 @@ export const Form: React.FC<FormProps> = ({ user }) => {
   const [url, setUrl] = useState<string>("");
   const [slug, setSlug] = useState<string>("");
   const [shortUrl, setShortUrl] = useState<string>("");
-  const [userUrls, setUserUrls] = useState<UserUrl[]>([]);
 
+  if (!user) {
+    return (
+      <div className="overlay-container">
+        <h3 className="form-heading">Please log in to shorten URLs</h3>
+      </div>
+    );
+  }
+  
   const handleSubmit = async () => {
     try {
       const requestBody = {
