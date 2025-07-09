@@ -5,12 +5,6 @@ interface ShortenResponse {
   shortUrl: string;
 }
 
-interface UserUrl {
-  shortUrl: string;
-  fullUrl: string;
-  createdAt: string;
-  visitCount: number;
-}
 export interface User {
   _id: string;
   email: string;
@@ -33,9 +27,29 @@ export const Form: React.FC<FormProps> = ({ user }) => {
       </div>
     );
   }
-  
+
+  const isValidUrl = (url: string): boolean => {
+    try {
+      new URL(url); // throws if invalid
+       const urlPattern = /^(https?:\/\/)?([\w-]+(\.[\w-]+)+)(:\d+)?(\/.*)?$/;
+        if (!urlPattern.test(url)) {
+          // If the URL does not match the pattern, return false
+          return false;
+        }
+      return true;
+    } catch {
+      return false;
+    }
+  };
+
   const handleSubmit = async () => {
     try {
+      // Validate the URL
+      if (!url || !isValidUrl(url)) {
+        alert("Please enter a valid URL starting with http:// or https://");
+        return;
+      } 
+
       const requestBody = {
         fullUrl: url,
         userId: user.email,
@@ -95,11 +109,18 @@ export const Form: React.FC<FormProps> = ({ user }) => {
           <p className="success-message">Success! Here's your short URL:</p>
           <div className="result-container">
             <div className="result-url">{shortUrl}</div>
-            <button 
-              className="copy-button" 
-              onMouseEnter={(e) => {e.currentTarget.style.backgroundColor = "blueviolet"; e.currentTarget.style.color="white"}}
-              onMouseLeave={(e) => {e.currentTarget.style.backgroundColor = "white"; e.currentTarget.style.color="blueviolet"}}
-              onClick={handleCopy}>
+            <button
+              className="copy-button"
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = "blueviolet";
+                e.currentTarget.style.color = "white";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = "white";
+                e.currentTarget.style.color = "blueviolet";
+              }}
+              onClick={handleCopy}
+            >
               Copy
             </button>
           </div>
