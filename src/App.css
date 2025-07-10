@@ -166,6 +166,13 @@
   font-style: italic;
   font-weight: bold;
 }
+.error-message {
+  font-size: small;
+  color: red;
+  text-align: start;
+  font-style: italic;
+  font-weight: bold;
+}
 .result-container {
   display: flex;
 }

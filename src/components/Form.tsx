@@ -19,6 +19,7 @@ export const Form: React.FC<FormProps> = ({ user }) => {
   const [url, setUrl] = useState<string>("");
   const [slug, setSlug] = useState<string>("");
   const [shortUrl, setShortUrl] = useState<string>("");
+  const [error, setError] = useState<string>("");
 
   if (!user) {
     return (
@@ -46,7 +47,7 @@ export const Form: React.FC<FormProps> = ({ user }) => {
     try {
       // Validate the URL
       if (!url || !isValidUrl(url)) {
-        alert("Please enter a valid URL starting with http:// or https://");
+        setError("Please enter a valid URL starting with http:// or https://");
         return;
       } 
 
@@ -124,6 +125,11 @@ export const Form: React.FC<FormProps> = ({ user }) => {
               Copy
             </button>
           </div>
+        </div>
+      )}
+      {error && (
+        <div className="error-message">
+          <p>{error}</p>  
         </div>
       )}
     </div>
